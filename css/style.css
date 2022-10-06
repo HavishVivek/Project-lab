@@ -14,7 +14,7 @@
  }
  .menu-bar
  {
-   background: rgb(0,100,0) ;
+   background: skyblue ;
    text-align: center; 
  }
  
@@ -32,7 +32,7 @@
 }
 .active, .menu-bar ul li:hover
 {
-    background: #2bab0d;
+    background: white;
     border-radius: 3px;
 }
 .menu-bar .fa
@@ -48,7 +48,7 @@
 {
     display: block;
     position:absolute;
-    background: rgb(0,100,0);
+    background: skyblue;
     margin-top:15px;
     margin-left:-15px;
 }
@@ -72,5 +72,5 @@
 }
 .menu-bar ul li:hover .sub-menu-1ul li a:hover
 {
-    color: #b2ff00;
+    color: white;
 }
