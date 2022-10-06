@@ -1,0 +1,72 @@
+<h1>
+  About The Project:
+</h1>
+
+<p>
+  Making a led blink ounce and then twice 
+</p>
+
+<h1>
+  Components and Supples:
+</h1>
+
+<ul>
+  <li> breadboard </li>
+  <li>jumperwires</li>
+  <li>raspberry</li>
+  <li>220 oms resistor</li> 
+  <li>led</li>    
+    <li>t cobber</li>  
+     <li>wedge cable</li> 
+</ul>
+
+<h1>
+  APPS AND ONLINE SERVICES:
+</h1>
+
+<li>
+  thony
+
+</li>
+<h1>
+  circut
+</h1>
+
+<img src="../images/curcuit.jpg" alt="circut" width="500" height="333"></img>
+
+<h1>
+  conneting a led to a raspberry:
+</h1>
+<p>
+  connect the led to the gpio 27 of the t cobber. connect the 220 resistor to the gpio gnd pin of the t cobber
+</p>
+
+<h1>
+  code for making led blink once:
+</h1>
+
+<pre><code>
+  importRPi.GPIO as GPIO
+  import time
+  GPIO.setmode(GPIO.BCM)
+  GPIO.output(27,GPIO.HIGH)
+  time.sleep(1)
+  GPIO.output(27,GPIO.LOW)
+  GPIO.cleanup()
+</code></pre>
+
+
+<h1>
+  code for make led blink more than once:
+</h1>
+<pre><code>
+  importRPi.GPIO as GPIO
+  import time
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setup(27,GPIO.OUT)
+  GPIO.output(27,GPIO.HIGH)
+  GPIO.output(27,GPIO.LOW)
+  GPIO.output(27,GPIO.HIGH)
+  GPIO.output(27,GPIO.LOW)
+  GPIO.cleanup()
+</code></pre>
