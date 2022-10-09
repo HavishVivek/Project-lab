@@ -6,11 +6,12 @@
  }
  body
  {
-     background-image: url();
-     background-size: cover;
-     background-position: center;
-     box-sizing: border-box;
-     font-family: sans-serif;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background: #ecf0f5 ;
  }
  .menu-bar
  {
