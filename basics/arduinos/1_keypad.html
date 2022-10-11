@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/show-page.css">
+    <link rel="html" href="index.html">
+  </head>
+  <body>
+		<!-- NAVBAR Start-->
+		<nav class="navbar">
+			<div class="menu-bar">
+				<ul>
+					<li class=""><a href="../index.html">Home</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="#">Resources</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Electronics</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="../arduino.html">Arduino</a></li>
+								<li><a href="../raspberry.html">Raspberry</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Programming</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="../python.html">Python</a></li>
+								<li><a href="../java.html">Java</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Games</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="../pygame.py">Pygame</a></li>
+								<li><a href="../roblox.html">Roblox</a></li>
+								<li><a href="../unity.html">Unity</a></li>
+							</ul>
+						</div>
+					</li>  
+				</ul>
+			</div>  
+		</nav>
+		<!-- NAVBAR End-->
+    <!-- Content Start-->
+    <div class="show-article">
+      <h2 class="title-article">
+        Getting Started with Keypad
+      </h2>
+      
+      <div class="image-article">
+        <img src="../images/keypad.jpg" alt="testing keypad">
+      </div>
+      
+      <div class="intro-article">
+        <p>
+          Just testing to see if that keypad works or not to use in future projects with different components
+        </p>
+      </div>
+      <div class="components-article">
+        <h4>
+          Components and Supplies
+        </h4>
+        
+        <ul>
+          <li>Breadboard</li>
+          <li>Jumperwires</li>
+          <li>Arduino uno/Arduino mega/Arduino due</li>
+          <li>Usb cable</li>
+          <li>Keypad</li>
+        </ul>
+      </div>
+      
+      <div class="schematics-article">
+        <h4>
+          Schematics
+        </h4>
+        <div>
+          <img src="../images/keypad.jpg" alt="testing keypad">
+        </div>
+      </div>
+
+      <div class="description-article">
+        <h4>
+          Description
+        </h4>
+        <p>
+         The keypad has Ultra-thin design and on the back it has an Adhesive backing. It can be used for typing a password. it can also be used for  Security systems.
+      </div>
+      <div class="code-article">
+        <h4>
+          Code
+        </h4>
+        <code data-lang="arduino">
+          int analogPin = A3; // potentiometer wiper (middle terminal) connected to analog pin 3
+          // outside leads to ground and +5V
+          int val = 0;  // variable to store the value read
+
+          void setup() {
+            Serial.begin(9600);           //  setup serial
+          }
+
+          void loop() {
+            val = analogRead(analogPin);  // read the input pin
+            Serial.println(val);          // debug value
+          }
+
+        </code>
+      </div>
+      <div class="conclusion-article">
+        <h4>
+          Conclusion
+        </h4>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+      </div>
+    </div>
+    <!-- Content End-->
+</body>
+</html>
