@@ -54,12 +54,12 @@
       </h2>
       
       <div class="image-article">
-        <img src="../images/keypad.jpg" alt="testing keypad">
+        <img src="../images/ultra_sonic_sensor.jpg" alt="ultra_sonic_sensor">
       </div>
       
       <div class="intro-article">
         <p>
-          Just testing to see if that keypad works or not to use in future projects with the different components
+          Build a basic project with ultra soni sensor. This the first time using a ultra sonic sensor. 
         </p>
       </div>
       <div class="components-article">
@@ -72,7 +72,7 @@
           <li>Jumperwires</li>
           <li>Arduino uno/Arduino mega/Arduino due</li>
           <li>Usb cable</li>
-          <li>Keypad</li>
+          <li>ultra sonic sensor</li>
         </ul>
       </div>
       
@@ -81,7 +81,7 @@
           Schematics
         </h4>
         <div>
-          <img src="../images/keypad.jpg" alt="testing keypad">
+          <img src="../images/ultra_sonic_sensor.jpg" alt="testing keypad">
         </div>
       </div>
 
@@ -90,41 +90,30 @@
           Description
         </h4>
         <p>
-         The keypad has Ultra-thin design and on the back it has an adhesive backing. It can be used for typing a password and also be used for security systems.
-      </div>
+         The ultra sonic sensor look like a face but it is used for measuring distance of an object. The sensor can olny measure up to 400cm and start at 2cm.
       <div class="code-article">
         <h4>
           Code
         </h4>
         <pre class="line-numbers">
           <code lass="language-objectivec">
-            #include <Keypad.h>
-
-              const byte ROWS = 4; 
-              const byte COLS = 4; 
-              
-              char hexaKeys[ROWS][COLS] = {
-                {'1', '2', '3', 'A'},
-                {'4', '5', '6', 'B'},
-                {'7', '8', '9', 'C'},
-                {'*', '0', '#', 'D'}
-              };
-              
-              byte rowPins[ROWS] = {9, 8, 7, 6}; 
-              byte colPins[COLS] = {5, 4, 3, 2}; 
-              
-              Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS); 
+            #include <SevSeg.h>
+              SevSeg sevseg;
               
               void setup(){
-                Serial.begin(9600);
+                byte numDigits = 1;
+                byte digitPins[] = {};
+                byte segmentPins[] = {6, 5, 2, 3, 4, 7, 8, 9};
+                bool resistorsOnSegment = true;
+                byte hardwareCinfig = COMMON_CATHODE;
+              
+                sevseg.begin(hardwareCinfig,numDigits,digitPins,segmentPins,resistorsOnSegment);
+                sevseg.setBrightness(100); 
               }
-                
+              
               void loop(){
-                char customKey = customKeypad.getKey();
-                
-                if (customKey){
-                  Serial.println(customKey);
-                }
+                sevseg.setNumber(10);
+                sevseg.refreshDisplay();
               }
   
           </code>
@@ -135,7 +124,7 @@
           Conclusion
         </h4>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          I learned alot about ultra sonic sensor. I will for be using ultra sonic for measurement project with arduino or raspberry pi.
         </p>
       </div>
     </div>
