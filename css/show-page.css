@@ -54,6 +54,13 @@ p{
   width: 50%;
 }
 
+.show-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .description-article{
   margin: 2em;
 }
@@ -66,9 +73,14 @@ p{
   margin: 2em;
 }
 
+.code-article pre{
+  border: .5px solid gainsboro;
+  background-color: #F2F2F2;
+}
+
 .code-article code{
-  background-color: #f7f9f9;
-  color: #000;
+  /* background-color: #f7f9f9; */
+  color: #454545;
   font-weight: 500;
   font-size: 14px;
 }

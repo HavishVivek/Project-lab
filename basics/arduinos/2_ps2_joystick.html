@@ -54,7 +54,7 @@
       </h2>
       
       <div class="image-article">
-        <img src="" alt="testing keypad">
+        <center><img class=show-image src="../images/joystick.jpg" alt="testing joystick"></center>
       </div>
       
       <div class="intro-article">
@@ -100,41 +100,34 @@
         </h4>
         <pre class="line-numbers">
           <code lass="language-objectivec">
-
-            int xPin = A0;
-            int yPin = A1;
-            int buttonPin = 7;
-            
-            void setup() {
-              pinMode(buttonPin, INPUT_PULLUP);
-              Serial.begin(9600);
-            }
-            
-            void loop() {
-              int xVal = analogRead(xPin);
-              int yVal = analogRead(yPin);
-              int buttonVal = digitalRead(buttonPin);
-            
-              Serial.print("X = ");
-              Serial.print(xVal);
-            
-              Serial.print("    Y = ");
-              Serial.print(yVal);
-            
-              Serial.print("    Button = ");
-              Serial.println(buttonVal);
-            
-              delay(100);
-            }
-  
-          </code>
+int xPin = A0;
+int yPin = A1;
+int buttonPin = 7;
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+void loop() {
+  int xVal = analogRead(xPin);
+  int yVal = analogRead(yPin);
+  int buttonVal = digitalRead(buttonPin);
+  Serial.print("X = ");
+  Serial.print(xVal);
+  Serial.print("    Y = ");
+  Serial.print(yVal);
+  Serial.print("    Button = ");
+  Serial.println(buttonVal);
+  delay(100);
+}</code>
         </pre>
       </div>
 
-      Schematics
+      <div class="schematics-article">
+        <h4>
+          Schematics
         </h4>
         <div>
-          <img src="../images/ led_joystick.jpg" alt="controlling four led with joystick">
+          <img src="../images/led_joystick.jpg" alt="controlling four led with joystick">
         </div>
       </div>
 
@@ -151,62 +144,48 @@
         </h4>
         <pre class="line-numbers">
           <code lass="language-objectivec">
-            
-            int xPin = A0;
+int xPin = A0;
 int yPin = A1;
 int buttonPin = 7;
-
 int upLED = 10;
 int downLED = 6;
 int leftLED = 11;
 int rightLED = 5;
 
 void setup() {
-
   pinMode(upLED, OUTPUT);
   pinMode(downLED, OUTPUT);
   pinMode(leftLED, OUTPUT);
   pinMode(rightLED, OUTPUT);
-
   pinMode(buttonPin, INPUT_PULLUP);
 }
-
 void loop() {
-
   int xVal = analogRead(xPin);
   int yVal = analogRead(yPin);
   boolean button = digitalRead(buttonPin);
-
   int upPWM = map(yVal, 511, 0, 0, 255);
   int downPWM = map(yVal, 511, 1023, 0, 255);
   int leftPWM = map(xVal, 495, 0, 0, 255);
   int rightPWM = map(xVal, 495, 1023, 0, 255);
-
   if (yVal <= 511) {
     analogWrite(upLED, upPWM);
   }
-
   if (yVal >= 511) {
     analogWrite(downLED, downPWM);
   }
-
   if (xVal <= 495) {
     analogWrite(leftLED, leftPWM);
   }
-
   if (xVal >= 495) {
     analogWrite(rightLED, rightPWM);
   }
-
   if (button == LOW) {
     digitalWrite(upLED, HIGH);
     digitalWrite(downLED, HIGH);
     digitalWrite(leftLED, HIGH);
     digitalWrite(rightLED, HIGH);
   }
-}
-  
-          </code>
+}</code>
         </pre>
       </div>
 
@@ -215,7 +194,6 @@ void loop() {
           Conclusion
         </h4>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
       </div>
     </div>

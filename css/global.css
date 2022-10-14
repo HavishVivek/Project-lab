@@ -79,3 +79,11 @@
 {
     color: white;
 }
+.show-image
+{
+ /* text-align:center; */
+ display:block;
+ width: 50%;
+ margin-left: auto;
+ margin-right:auto;
+}

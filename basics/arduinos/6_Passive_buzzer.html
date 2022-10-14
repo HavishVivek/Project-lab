@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/show-page.css">
+    <link rel="html" href="index.html">
+  </head>
+  <body>
+		<!-- NAVBAR Start-->
+		<nav class="navbar">
+			<div class="menu-bar">
+				<ul>
+					<li class=""><a href="../../index.html">Home</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="#">Resources</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Electronics</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="../arduino.html">Arduino</a></li>
+								<li><a href="../raspberry.html">Raspberry</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Programming</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="../python.html">Python</a></li>
+								<li><a href="../java.html">Java</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Games</a>
+						<div class="sub-menu-1">
+							<ul>
+								<li><a href="../pygame.py">Pygame</a></li>
+								<li><a href="../roblox.html">Roblox</a></li>
+								<li><a href="../unity.html">Unity</a></li>
+							</ul>
+						</div>
+					</li>  
+				</ul>
+			</div>  
+		</nav>
+		<!-- NAVBAR End-->
+    <!-- Content Start-->
+    <div class="show-article">
+      <h2 class="title-article">
+        Making different ound
+      </h2>
+      
+      <div class="image-article">
+        <img class=show-image src="../images/buzzer.jpg" alt="passive buzzer">
+      </div>
+      
+      <div class="intro-article">
+        <p>
+          The passive buzzer can make sound just like active buzzer. It can output different sound. It has two pins one for signal pin and gnd pin.
+        </p>
+      </div>
+      <div class="components-article">
+        <h4>
+          Components
+        </h4>
+        
+        <ul>
+          <li>Arduino uno/Arduino mega/Arduino due</li>
+          <li>passive buzzer</li>
+          <li>Breadboard</li>
+          <li>Jumperwires</li>
+          <li>Usb cable</li>
+        </ul>
+      </div>
+      
+      <div class="description-article">
+        <h4>
+          Description
+        </h4>
+        <p>
+         There is a function in arduino specifical for the passive buzzer.The tone function is used for a passive buzzer. It is used for telling the buzzer duration and frequency of the tone.
+         Two ways to write tone()
+         <ul>
+         <li>tone(pin,frequency)</li>
+         <li>tone(pin,frequency,duration)</li>
+        </ul>
+        </p>
+      </div>
+
+    <a href="https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/">tone()</a>
+
+      <div class="schematics-article">
+        <h4>
+          Schematics
+        </h4>
+        <div>
+          <img src="../images/passive_buzzer.jpg" alt="passive buzzer">
+        </div>
+      </div>
+
+     
+      <div class="code-article">
+        <h4>
+          Code
+        </h4>
+        <pre class="line-numbers">
+          <code lass="language-objectivec">
+  const int buzzer = 8;
+  void setup(){
+      pinMode(buzzer, OUTPUT);
+  }
+  void loop(){
+      tone(buzzer,1000);
+      delay(1000);
+      noTone(buzzer);
+      delay(1000);
+  }</code>
+        </pre>
+      </div>
+      <div class="conclusion-article">
+        <h4>
+          Conclusion
+        </h4>
+        <p>
+          The passive buzzer is one type of buzzer in the world.The buzzer was fun to learn. The buzzer will be used in many future projects.
+        </p>
+      </div>
+    </div>
+    <!-- Content End-->
+</body>
+</html>

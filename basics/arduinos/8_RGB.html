@@ -50,16 +50,16 @@
     <!-- Content Start-->
     <div class="show-article">
       <h2 class="title-article">
-        Getting Started with Keypad
+        Fading Light
       </h2>
       
       <div class="image-article">
-        <img src="../images/keypad.jpg" alt="testing keypad">
+        <img class=show-image src="../images/lcd.jpg" alt="passive buzzer">
       </div>
       
       <div class="intro-article">
         <p>
-          Just testing to see if that keypad works or not to use in future projects with the different components
+          In this project, contains a RGB color LED.The RGB led has 4 pin but only 3 are for color and  for gnd. The RGB can give out three color. The color are red,blue,green.
         </p>
       </div>
       <div class="components-article">
@@ -69,57 +69,61 @@
         
         <ul>
           <li>Arduino uno/Arduino mega/Arduino due</li>
-          <li>Keypad</li>
+          <li>RGB led</li>
+          <li> 4 220 ohm resistor</li>
           <li>Breadboard</li>
           <li>Jumperwires</li>
           <li>Usb cable</li>
         </ul>
       </div>
       
-      <div class="schematics-article">
-        <h4>
-          Schematics
-        </h4>
-        <div>
-          <img src="../images/keypad.jpg" alt="testing keypad">
-        </div>
-      </div>
-
       <div class="description-article">
         <h4>
           Description
         </h4>
         <p>
-         The keypad has Ultra-thin design and on the back it has an adhesive backing. It can be used for typing a password and also be used for security systems.
+          There is a modulation for swiching bewteen on time and off time. The pwm stand for pulse with modulation.  The time on  is call pulse width. The person can change the duty cycle for voltage to variy. We use the analog write function to use pwm.
+        </p>
       </div>
+
+      <div class="schematics-article">
+        <h4>
+          Schematics
+        </h4>
+        <div>
+          <img src="../images/RGB.jpg" alt="lcd">
+        </div>
+      </div>
+
+     
       <div class="code-article">
         <h4>
           Code
         </h4>
-        <pre class="pre-code">
-          <code>
-  #include Keypad.h
-  const byte ROWS = 4; 
-  const byte COLS = 4; 
-  char hexaKeys[ROWS][COLS] = {
-    {'1', '2', '3', 'A'},
-    {'4', '5', '6', 'B'},
-    {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}
-  };
-  byte rowPins[ROWS] = {9, 8, 7, 6}; 
-  byte colPins[COLS] = {5, 4, 3, 2}; 
-  Keypad customKeypad = Keypad(makeKeymap(hexaKeys), 
-                               rowPins, colPins, ROWS, COLS); 
-  void setup(){
-    Serial.begin(9600);
+        <pre class="line-numbers">
+          <code lass="language-objectivec">
+
+#include <AlaLedRgb.h>
+
+  #define REDPIN 3
+  #define GREENPIN 5
+  #define BLUEPIN 6
+  
+  AlaLedRgb rgbLed;
+  
+  void setup()
+  {
+    rgbLed.initPWM(REDPIN, GREENPIN, BLUEPIN);                 // initialize output pins
+    rgbLed.setBrightness(0x66FF44);                            // calibrate white
+    rgbLed.setAnimation(ALA_GLOW, 5000, alaPalRgb);  // set the animation
   }
-  void loop(){
-    char customKey = customKeypad.getKey();
-    if (customKey){
-      Serial.println(customKey);
-    }
-  }</code>
+  
+  void loop()
+  {
+    rgbLed.runAnimation();  // run the animation indefinitely
+  }
+              
+              </code>
         </pre>
       </div>
       <div class="conclusion-article">
@@ -127,6 +131,7 @@
           Conclusion
         </h4>
         <p>
+          The coolest led in the world is called RGB led. This led can give out three different color. You can programm it to give one color after one or fade one use pwm.
         </p>
       </div>
     </div>
