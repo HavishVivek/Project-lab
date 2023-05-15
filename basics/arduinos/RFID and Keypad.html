@@ -2,139 +2,155 @@
 <html>
   <head>
     <title>test</title>
-    <link rel="stylesheet" href="../../css/global.css">
-    <link rel="stylesheet" href="../../css/show-page.css">
-    <link rel="html" href="index.html">
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/show-page.css" />
+    <link rel="html" href="index.html" />
   </head>
   <body>
-		<!-- NAVBAR Start-->
-		<nav class="navbar">
-			<div class="menu-bar">
-				<ul>
-					<li class=""><a href="../../index.html">Home</a>
-						<div class="sub-menu-1">
-							<ul>
-								<li><a href="#">Resources</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">Electronics</a>
-						<div class="sub-menu-1">
-							<ul>
-								<li><a href="../arduino.html">Arduino</a></li>
-								<li><a href="../raspberry.html">Raspberry</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">Programming</a>
-						<div class="sub-menu-1">
-							<ul>
-								<li><a href="../python.html">Python</a></li>
-								<li><a href="../java.html">Java</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">Games</a>
-						<div class="sub-menu-1">
-							<ul>
-								<li><a href="../pygame.py">Pygame</a></li>
-								<li><a href="../roblox.html">Roblox</a></li>
-								<li><a href="../unity.html">Unity</a></li>
-							</ul>
-						</div>
-					</li>  
-				</ul>
-			</div>  
-		</nav>
-		<!-- NAVBAR End-->
     <!-- Content Start-->
     <div class="show-article">
-      <h2 class="title-article">
-        Fading Light
-      </h2>
-      
+      <h2 class="title-article">rfid and keypad door lock system</h2>
+
       <div class="image-article">
-        <img class=show-image src="../images/lcd.jpg" alt="passive buzzer">
+        <img src="../images/keypad.jpg" alt="testing keypad" />
       </div>
-      
+
       <div class="intro-article">
         <p>
-          In this project, contains a RGB color LED.The RGB led has 4 pin but only 3 are for color and  for gnd. The RGB can give out three color. The color are red,blue,green.
+          A Door lock system that open the door when the passcode and correct
+          the tag is put and the servo move to the open or close depends on if
+          your close or open the door
         </p>
       </div>
       <div class="components-article">
-        <h4>
-          Components
-        </h4>
-        
+        <h4>Components</h4>
+
         <ul>
           <li>Arduino uno/Arduino mega/Arduino due</li>
-          <li>RGB led</li>
-          <li> 4 220 ohm resistor</li>
-          <li>Breadboard</li>
+          <li>Keypad(3x4 or 4x4)</li>
+          <li>Rfid/tag/card</li>
           <li>Jumperwires</li>
           <li>Usb cable</li>
+          <li>servo(sg90)</li>
+          ,<li>redLed/ greenLED</li>
         </ul>
-      </div>
-      
-      <div class="description-article">
-        <h4>
-          Description
-        </h4>
-        <p>
-          There is a modulation for swiching bewteen on time and off time. The pwm stand for pulse with modulation.  The time on  is call pulse width. The person can change the duty cycle for voltage to variy. We use the analog write function to use pwm.
-        </p>
       </div>
 
       <div class="schematics-article">
-        <h4>
-          Schematics
-        </h4>
+        <h4>Schematics</h4>
         <div>
-          <img src="../images/RGB.jpg" alt="lcd">
+          <img src="../images/keypad.jpg" alt="testing keypad" />
         </div>
       </div>
 
-     
+      <div class="description-article">
+        <h4>Description</h4>
+        <p>
+          The keypad has Ultra-thin design and on the back it has an adhesive
+          backing. It can be used for typing a password and also be used for
+          security systems.
+        </p>
+      </div>
+
       <div class="code-article">
-        <h4>
-          Code
-        </h4>
-        <pre class="line-numbers">
-          <code lass="language-objectivec">
-
-#include <AlaLedRgb.h>
-
-  #define REDPIN 3
-  #define GREENPIN 5
-  #define BLUEPIN 6
-  
-  AlaLedRgb rgbLed;
-  
-  void setup()
-  {
-    rgbLed.initPWM(REDPIN, GREENPIN, BLUEPIN);                 // initialize output pins
-    rgbLed.setBrightness(0x66FF44);                            // calibrate white
-    rgbLed.setAnimation(ALA_GLOW, 5000, alaPalRgb);  // set the animation
-  }
-  
-  void loop()
-  {
-    rgbLed.runAnimation();  // run the animation indefinitely
-  }
+        <h4>Code</h4>
+        <pre class="pre-code">
+          <code>
+            #include <LiquidCrystal.h> //include LCD library (standard library)
+              #include <Keypad.h> //include keypad library - first you must install library (library link in the video description)
               
-              </code>
+              #define redLED 10 //define the LED pins
+              #define greenLED 11
+              
+              char* password ="**070177##"; //create a password
+              int pozisyon = 0; //keypad position
+              
+              const byte rows = 4; //number of the keypad's rows and columns
+              const byte cols = 3;
+              
+              char keyMap [rows] [cols] = {
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'},
+                {'*', '0', '#'}
+              
+              };
+              
+              
+              byte rowPins [rows] = {9, 8, 7, 6}; //pins of the keypad
+              byte colPins [cols] = {5, 4, 3};
+              
+              Keypad myKeypad = Keypad( makeKeymap(keyMap), rowPins, colPins, rows, cols);
+              
+              LiquidCrystal lcd (A0, A1, A2, A3, A4, A5); // pins of the LCD. (RS, E, D4, D5, D6, D7)
+              
+              void setup(){
+              
+                lcd.begin(16, 2);
+                pinMode(redLED, OUTPUT);  //set the LED as an output
+                pinMode(greenLED, OUTPUT);
+                setLocked (true); //state of the password
+              }
+              
+              void loop(){
+              
+                char whichKey = myKeypad.getKey(); //define which key is pressed with getKey
+              
+                lcd.setCursor(0, 0);
+                lcd.print("    Welcome");
+                lcd.setCursor(0, 1);
+                lcd.print(" Enter Password");
+              
+                // if(whichKey == '*' || whichKey == '#'){
+                //   pozisyon=0;
+                //   setLocked (true);
+                //   lcd.clear();
+                //   lcd.setCursor(0, 0);
+                //   lcd.print("  Invalid Key!");
+                //   delay(1000);
+                //   lcd.clear();
+                // }
+                if(whichKey == password [pozisyon]){
+              
+                  pozisyon ++;
+                }
+                if(pozisyon == 10){
+                  setLocked (false);
+                  lcd.clear();
+                  lcd.setCursor(0, 0);
+                  lcd.print("*** Verified ***");
+                  delay(3000);
+                  lcd.clear();
+                  lcd.setCursor(0, 0);
+                  lcd.print(" entered");
+                  lcd.setCursor(0, 1);
+                  lcd.print("open door");
+                  delay(7000);
+                  lcd.clear();
+                }
+              
+                delay(100);
+              }
+              
+              void setLocked(int locked){
+                if(locked){
+                  digitalWrite(redLED, HIGH);
+                  digitalWrite(greenLED, LOW);
+                  }
+                  else{
+                    digitalWrite(redLED, LOW);
+                    digitalWrite(greenLED, HIGH);
+                  }
+                }
+              
+          </code>
         </pre>
       </div>
       <div class="conclusion-article">
-        <h4>
-          Conclusion
-        </h4>
-        <p>
-          The coolest led in the world is called RGB led. This led can give out three different color. You can programm it to give one color after one or fade one use pwm.
-        </p>
+        <h4>Conclusion</h4>
+        <p></p>
       </div>
     </div>
     <!-- Content End-->
-</body>
+  </body>
 </html>
