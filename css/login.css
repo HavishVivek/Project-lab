@@ -24,6 +24,7 @@
   margin: 6% auto;
   background: #fff;
   padding: 5px;
+  overflow: hidden;
 }
 
 .button-box{
@@ -99,5 +100,5 @@ span{
 }
 
 #register{
-  left: 50px;
+  left: 450px;
 }
